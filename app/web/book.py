@@ -4,7 +4,7 @@
 @file: book.py
 @time: 2018/7/20 15:58
 """
-from flask import jsonify, request, render_template
+from flask import jsonify, request, render_template, flash
 from app.forms.book import SearchForm
 from app.view_models.book import BookCollection
 from . import web
@@ -34,16 +34,17 @@ def search():
             yushu_book.search_by_keyword(q, page)
 
         books.fill(yushu_book, q)
-        return json.dumps(books, default=lambda o: o.__dict__)
-        # return jsonify(books.__dict__)
     else:
-        return jsonify(form.errors)
+        flash('搜索的官架子不符合要求，请重新输入')
+    return render_template('search_result.html', books=books)
 
 
 @web.route('/test')
 def test():
     r = {
-        'name': 'menghe',
+        'name': 'aaa',
         'age': 27
     }
+    flash('hello,dm', category='error')
+    flash('hello,zy', category='warring')
     return render_template('test.html', data=r)
