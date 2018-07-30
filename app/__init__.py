@@ -5,7 +5,8 @@
 @time: 2018/7/20 16:27
 """
 from flask import Flask
-from app.models.book import db
+
+from app.models.base import db
 
 
 def create_app():

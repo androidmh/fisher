@@ -5,12 +5,11 @@
 @time: 2018/7/23 14:27
 """
 from sqlalchemy import Column, Integer, String
-from flask_sqlalchemy import SQLAlchemy
 
-db = SQLAlchemy()
+from app.models.base import Base
 
 
-class Book(db.Model):
+class Book(Base):
     """
         primary_key主键, autoincrement自增, nullable是否可以为空, default默认值, unique是否可以重复
     """
