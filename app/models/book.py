@@ -5,7 +5,6 @@
 @time: 2018/7/23 14:27
 """
 from sqlalchemy import Column, Integer, String
-
 from app.models.base import Base
 
 

@@ -1,12 +1,12 @@
+from app.models.gift import Gift
 from . import web
-
-
-__author__ = '七月'
 
 
 @web.route('/')
 def index():
-    pass
+    recent_gifts = Gift.recent()
+    books = []
+    return 'hello'
 
 
 @web.route('/personal')
